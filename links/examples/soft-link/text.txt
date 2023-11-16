@@ -1,0 +1,1 @@
+/Users/andreyshabunov/PhpstormProjects/bash-scripts-beginner/links/examples/test/test.txt
