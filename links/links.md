@@ -21,13 +21,24 @@ https://coursehunter.net/course/rukovodstvo-dlya-nachinayushchih-po-napisaniyu-s
 ## Create Hard link:
 1. `ln /Users/andreyshabunov/PhpstormProjects/bash-scripts-beginner/links/examples/test/test.txt /Users/andreyshabunov/PhpstormProjects/bash-scripts-beginner/links/examples/hard-link/test.txt` - create a hard link
 2. `ls -i /Users/andreyshabunov/PhpstormProjects/bash-scripts-beginner/links/examples/hard-link && ls -i /Users/andreyshabunov/PhpstormProjects/bash-scripts-beginner/links/examples/test`:
+Вывести тест файл и его хард линк:
 ```
 49805179 test.txt
 49805179 test.txt
 ```
 3. `ls -i /Users/andreyshabunov/PhpstormProjects/bash-scripts-beginner/links/examples/hard-link && ls -i /Users/andreyshabunov/PhpstormProjects/bash-scripts-beginner/links/examples/test && ls -i /Users/andreyshabunov/PhpstormProjects/bash-scripts-beginner/links/examples/soft-link`:
+Вывести тест файл, его хард линк и софт линк:
 ```
 49805179 test.txt
 49805179 test.txt
 49807400 text.txt
+```
+
+## Create a Dir Soft link:
+1. `ln -s links/examples/test links/examples/soft-link/test-link` - create a soft link to a dir
+2. `ls -i links/examples/soft-link && ls -i links/examples`:
+Вывести тест директорию и её линку:
+```
+49807956 test-link      49807400 text.txt
+49805132 hard-link      49805130 soft-link      49805165 test
 ```
