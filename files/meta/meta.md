@@ -54,5 +54,33 @@ https://coursehunter.net/course/rukovodstvo-dlya-nachinayushchih-po-napisaniyu-s
         1. `touch -m ./files/meta/meta.md` - изменить дату
     4. `touch ./files/meta/new_file.md` - создать новый файл
 6. `chown` - поменять владельца файла
+    1. `sudo chown root README.md`:
+    ```
+    -rw-r--r--@ 1 aashabunov  1402375171    0 17 ноя 14:36 README.md
+    -rw-r--r--@ 1 root        1402375171    0 17 ноя 14:36 README.md
+    ```
+    2. `sudo chown -Rv root ./files` - поменять владельца для всех вложенных файлов и папок и вывести в консоль изменения:
+    ```
+    ./files/meta/meta.md
+    ./files/meta
+    ./files/examples/files_s_link.md
+    ./files/examples
+    ./files/files.md
+    ./files
+    ```
 7. `chgrp` - поменять владельца группы
-8. `chmod` - изменить 
+    1. `chgrp everyone README.md`:
+    ```
+    -rw-r--r--@ 1 aashabunov  1402375171    0 17 ноя 14:36 README.md
+    -rw-r--r--@ 1 aashabunov  everyone      0 17 ноя 14:36 README.md
+    ```
+    2. `sudo chgrp -Rv everyone ./files`:
+    ```
+    ./files/meta/meta.md
+    ./files/meta
+    ./files/examples/files_s_link.md
+    ./files/examples
+    ./files/files.md
+    ./files
+    ```
+8. `chmod` - изменить права доступа к файлам и директориям
