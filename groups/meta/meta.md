@@ -10,6 +10,7 @@ https://coursehunter.net/course/rukovodstvo-dlya-nachinayushchih-po-napisaniyu-s
 1402375171 everyone netaccounts _appserverusr admin _appserveradm _lpadmin com.apple.sharepoint.group.1 com.apple.sharepoint.group.2 _appstore _lpoperator _developer _analyticsusers com.apple.access_ftp com.apple.access_screensharing com.apple.access_ssh com.apple.access_remote_ae
 ```
 
+
 ## Group commands:
 1. `groupadd` - создать группу 
 2. `groupdel` - удалить группу
