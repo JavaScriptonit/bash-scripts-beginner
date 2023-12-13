@@ -8,4 +8,3 @@ https://google.github.io/styleguide/shellguide.html
 3. `./start-app.sh` - запуск скрипта
 4. `export PATH=$PATH:$PWD` - переписать PATH чтобы текущий путь до скрипта был в переменной для вызова скрипта из любой директории:
     1. `start-app`
-5. ``
