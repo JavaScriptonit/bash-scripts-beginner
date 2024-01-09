@@ -1,8 +1,9 @@
 https://coursehunter.net/course/rukovodstvo-dlya-nachinayushchih-po-napisaniyu-skriptov-na-shell-i-bash?lesson=28
 
-# Shell Expansions:
+# Shell Expansions.
+## Подстановки в Bash скриптах:
 
-1. `Brace Expansion` - (x..y) (a,b,c)
+1. `Brace Expansion` - {x..y} {a,b,c}
     1. `touch file1 file2 file3 file4` - создать тест файлы
     2. `ls -l file{1..3}` - отобразить файлы с рэнжом 1-2
     ```
