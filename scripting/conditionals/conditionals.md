@@ -1,6 +1,7 @@
 https://coursehunter.net/course/rukovodstvo-dlya-nachinayushchih-po-napisaniyu-skriptov-na-shell-i-bash?lesson=29
 
-# Conditionals. Part 1:
+# Conditionals. Part 1.
+## Boolean. TRUE = 0, FALSE > 0. ERROR > 1:
 
 1. `cat ./scripting/Intro/examples/start-app.sh` - вывод содержимого скрипта
     1. `echo $?`: 0 - вывод 0/1 для уточнения успешности выполнения команды (status code выполнения программы)
@@ -14,3 +15,4 @@ https://coursehunter.net/course/rukovodstvo-dlya-nachinayushchih-po-napisaniyu-s
     1. `[[ 10 -lt 15 ]]`, `echo $?` - используется на практике
 5. `test 10 -lt 5 || echo $?` - 1 (false / 10 меньше 5)
     1. `[[ 10 -lt 5 ]]`, `echo $?` - используется на практике
+6. `(( 10 > 5 )) && echo $?` - выводит 0 если в "()" всё верно
