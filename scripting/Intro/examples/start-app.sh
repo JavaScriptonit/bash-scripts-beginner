@@ -6,7 +6,31 @@ default_app_name="Spring"
 
 echo "Aplication name is ${default_app_name}!"
 
+# if
 value=25
+if (( value > 0 )); then
+    echo "${value} is positive"
+elif (( value == 0 )); then
+    echo "${value} is zero"
+else
+    echo "${value} is negative"
+fi
+
+# case
+echo "Enter any program:"
+read program
+case "${program}" in 
+clean)
+    echo "Clean is invoked"
+    ;;
+build)
+    echo "Build is invoked"
+    ;;
+*)
+    echo "${program} is not supported by this application"
+    exit 2
+    ;;
+esac
 
 #      0 1 2  3   4    5
 array=(1 5 22 190 1240 2050)

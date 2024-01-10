@@ -16,3 +16,7 @@ https://coursehunter.net/course/rukovodstvo-dlya-nachinayushchih-po-napisaniyu-s
 5. `test 10 -lt 5 || echo $?` - 1 (false / 10 меньше 5)
     1. `[[ 10 -lt 5 ]]`, `echo $?` - используется на практике
 6. `(( 10 > 5 )) && echo $?` - выводит 0 если в "()" всё верно
+
+https://coursehunter.net/course/rukovodstvo-dlya-nachinayushchih-po-napisaniyu-skriptov-na-shell-i-bash?lesson=30
+# Conditionals. Part 2.
+## View file scripting/Intro/examples/start-app.sh
