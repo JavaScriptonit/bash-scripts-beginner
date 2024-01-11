@@ -19,17 +19,18 @@ fi
 # case
 echo "Enter any program:"
 read program
+
 case "${program}" in 
-clean)
-    echo "Clean is invoked"
-    ;;
-build)
-    echo "Build is invoked"
-    ;;
-*)
-    echo "${program} is not supported by this application"
-    exit 2
-    ;;
+    clean)
+        echo "Clean is invoked"
+        ;;
+    build)
+        echo "Build is invoked"
+        ;;
+    *)
+        echo "${program} is not supported by this application"
+        exit 2
+        ;;
 esac
 
 #      0 1 2  3   4    5
