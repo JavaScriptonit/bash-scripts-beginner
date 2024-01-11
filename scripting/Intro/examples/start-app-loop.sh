@@ -26,6 +26,7 @@ for (( i = 0; i < "${#array[@]}"; i++ )); do
 done
 
 # foreach
+# Выводит значение из массива за каждую итерацию
 new_array=(5 90 83 23 67)
 
 for value in "${new_array[@]}" ; do
@@ -49,6 +50,15 @@ for file in "${files[@]}" ; do
             touch "/Users/andreyshabunov/PhpstormProjects/bash-scripts-beginner/scripting/expansions/examples/${file}"
         fi
     fi
+done
+
+# foreach
+# Вывод содержимого ключей
+# Вывод путь до ключей
+
+for key in ~/.ssh/id_rsa*; do
+    echo "Key file: ${key}"
+    cat "${key}"
 done
 
 # if
