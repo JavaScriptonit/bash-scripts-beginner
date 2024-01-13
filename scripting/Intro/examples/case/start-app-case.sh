@@ -10,6 +10,7 @@
 echo "Enter any program:"
 read program
 
+# multi-command alternatives:
 case "${program}" in 
     clean)
         echo "Clean is invoked"
@@ -23,4 +24,9 @@ case "${program}" in
         ;;
 esac
 
-
+# one-line alternative:
+case "${program}" in 
+    clean) echo "Clean is invoked" ;;
+    build) echo "Build is invoked" ;;
+    *) echo "${program} is not supported by this application" && exit 2 ;;
+esac
