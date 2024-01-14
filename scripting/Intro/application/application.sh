@@ -12,7 +12,7 @@ help() {
     echo "
     Usage:
         ./application.sh init - init working directory and database
-        ./ppllication.sh clean - clean working directory
+        ./ppllication.sh clean - clean working directory and stop database
         ./application.sh build - run JUnit tests to check application health (-skipTests arg to skip tests) and build jar
         ./application.sh up - launch apllication
     "
@@ -25,14 +25,14 @@ init() {
     cd "${workDir}" || exit
     pwd # print current directory
 
-    # Git clone
+    # Git clone spring app
     if [[ ! -d "spring-starter" ]]; then
         git clone git@github.com:dmdev2020/spring-starter.git
     fi
     cd "spring-starter" || exit
     git checkout lesson-125
 
-    # PostgreSQL
+    # PostgreSQL pull and start
     docker pull postgres
     if docker ps -a | grep "${DB_CONTAINER_NAME}"; then
         docker start "${DB_CONTAINER_NAME}"
@@ -44,7 +44,19 @@ init() {
             -p 5433:5432 \
             -d postgres
     fi
+}
 
+clean() {
+    # Remove working directory
+    echo "Removing working directory ${workDir}"
+    rm -rf "${workDir}"
+    
+    # Stop database
+    if docker ps | grep "${DB_CONTAINER_NAME}"; then
+        echo "Stopping docker container name ${DB_CONTAINER_NAME}"
+        docker stop "${DB_CONTAINER_NAME}"
+    fi
+    
 }
 
 case $1 in 
@@ -55,7 +67,7 @@ case $1 in
         init
         ;;
     clean)
-        echo "Clean is invoked"
+        clean
         ;;
     build)
         echo "Build is invoked"
