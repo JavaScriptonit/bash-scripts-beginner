@@ -1,5 +1,13 @@
 #!/bin/bash
 
+if [[ -f "./env.sh" ]]; then
+    echo "Use env variables from file ${PWD}/env.sh"
+    source ./env.sh
+fi
+
+DB_CONTAINER_NAME="spring-postgres"
+workDir="${WORKING_DIRECTORY:=~/Workspace}"
+
 help() {
     echo "
     Usage:
@@ -10,12 +18,41 @@ help() {
     "
 }
 
+init() {
+    # Init working directory
+    echo "Init working directory"
+    mkdir -p "${workDir}"
+    cd "${workDir}" || exit
+    pwd # print current directory
+
+    # Git clone
+    if [[ ! -d "spring-starter" ]]; then
+        git clone git@github.com:dmdev2020/spring-starter.git
+    fi
+    cd "spring-starter" || exit
+    git checkout lesson-125
+
+    # PostgreSQL
+    docker pull postgres
+    if docker ps -a | grep "${DB_CONTAINER_NAME}"; then
+        docker start "${DB_CONTAINER_NAME}"
+    else
+        docker run --name "${DB_CONTAINER_NAME}" \
+            -e POSTGRES_PASSWORD=pass \
+            -e POSTGRES_USER=postgres \
+            -e POSTGRES_DB=postgres \
+            -p 5433:5432 \
+            -d postgres
+    fi
+
+}
+
 case $1 in 
     help)
         help
         ;;
     init)
-        echo "Init working directory and database"
+        init
         ;;
     clean)
         echo "Clean is invoked"
