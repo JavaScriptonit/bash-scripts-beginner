@@ -59,6 +59,21 @@ clean() {
     
 }
 
+build() {
+    echo "Run JUnit tests to check application health (-skipTests arg to skip tests) and build jar"
+    cd "${workDir}/spring-starter" || exit
+    
+    # Почистить рабочую директорию Gradle
+    ./gradlew clean
+
+    if [[ "$1" = "-skipTests" ]] || ./gradlew test; then
+        echo "Application is building..."
+        ./gradlew bootJar 
+    else
+        echo "Tests failed. See test report or send -skipTests arg to skip tests"
+    fi
+}
+
 case $1 in 
     help)
         help
@@ -70,7 +85,7 @@ case $1 in
         clean
         ;;
     build)
-        echo "Build is invoked"
+        build $2
         ;;
     up)
         echo "Launch apllication"
