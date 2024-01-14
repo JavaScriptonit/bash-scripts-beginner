@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Case statement
 # https://google.github.io/styleguide/shellguide.html
 
