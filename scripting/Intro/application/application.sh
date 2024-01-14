@@ -1,4 +1,5 @@
 #!/bin/bash
+# https://coursehunter.net/course/rukovodstvo-dlya-nachinayushchih-po-napisaniyu-skriptov-na-shell-i-bash?lesson=33
 
 if [[ -f "./env.sh" ]]; then
     echo "Use env variables from file ${PWD}/env.sh"
@@ -66,12 +67,23 @@ build() {
     # Почистить рабочую директорию Gradle
     ./gradlew clean
 
+    # Запуск сборки без прогона тестов:
+    # ./scripting/Intro/application/application.sh build -skipTests
     if [[ "$1" = "-skipTests" ]] || ./gradlew test; then
         echo "Application is building..."
         ./gradlew bootJar 
     else
         echo "Tests failed. See test report or send -skipTests arg to skip tests"
     fi
+}
+
+up() {
+    # Launch apllication
+    echo "Launching apllication"
+
+    cd "${workDir}/spring-starter/build/libs" || exit
+
+    java -jar spring-starter-*.jar
 }
 
 case $1 in 
@@ -88,7 +100,7 @@ case $1 in
         build $2
         ;;
     up)
-        echo "Launch apllication"
+        up
         ;;
     *)
         echo "Command $1 is not supported by this application"
