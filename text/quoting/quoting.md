@@ -97,6 +97,7 @@ grep -cP '([Ss]pecial|\|?characters*)$' ${1:+"$1"}
     3. Arguments: Arguments taken.
     4. Outputs: Output to STDOUT or STDERR.
     5. Returns: Returned values other than the default exit status of the last command run.
+    Example:
     ```
     #######################################
     # Cleanup files from the backup directory.
@@ -109,7 +110,6 @@ grep -cP '([Ss]pecial|\|?characters*)$' ${1:+"$1"}
     function cleanup() {
       …
     }
-
     #######################################
     # Get configuration directory.
     # Globals:
@@ -122,7 +122,6 @@ grep -cP '([Ss]pecial|\|?characters*)$' ${1:+"$1"}
     function get_dir() {
       echo "${SOMEDIR}"
     }
-
     #######################################
     # Delete a file in a sophisticated manner.
     # Arguments:
