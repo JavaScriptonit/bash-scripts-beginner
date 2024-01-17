@@ -77,3 +77,60 @@ grep -cP '([Ss]pecial|\|?characters*)$' ${1:+"$1"}
 (set -- 1 "2 two" "3 three tres"; echo $#; set -- "$*"; echo "$#, $@")
 (set -- 1 "2 two" "3 three tres"; echo $#; set -- "$@"; echo "$#, $@")
 ```
+
+
+# Comments:
+
+1. ### File Header:
+  Start each file with a description of its contents.
+  ```
+  #!/bin/bash
+  #
+  # Perform hot backups of Oracle databases.
+  ```
+
+2. ### Function Comments:
+  1. Any function that is not both obvious and short must be commented.
+  2. All function comments should describe the intended API behaviour using:
+    1. Description of the function.
+    2. Globals: List of global variables used and modified.
+    3. Arguments: Arguments taken.
+    4. Outputs: Output to STDOUT or STDERR.
+    5. Returns: Returned values other than the default exit status of the last command run.
+    ```
+    #######################################
+    # Cleanup files from the backup directory.
+    # Globals:
+    #   BACKUP_DIR
+    #   ORACLE_SID
+    # Arguments:
+    #   None
+    #######################################
+    function cleanup() {
+      …
+    }
+
+    #######################################
+    # Get configuration directory.
+    # Globals:
+    #   SOMEDIR
+    # Arguments:
+    #   None
+    # Outputs:
+    #   Writes location to stdout
+    #######################################
+    function get_dir() {
+      echo "${SOMEDIR}"
+    }
+
+    #######################################
+    # Delete a file in a sophisticated manner.
+    # Arguments:
+    #   File to delete, a path.
+    # Returns:
+    #   0 if thing was deleted, non-zero on error.
+    #######################################
+    function del_thing() {
+      rm "$1"
+    }
+    ```
