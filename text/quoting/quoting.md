@@ -97,39 +97,42 @@ grep -cP '([Ss]pecial|\|?characters*)$' ${1:+"$1"}
     3. Arguments: Arguments taken.
     4. Outputs: Output to STDOUT or STDERR.
     5. Returns: Returned values other than the default exit status of the last command run.
-    Example:
-    ```
-    #######################################
-    # Cleanup files from the backup directory.
-    # Globals:
-    #   BACKUP_DIR
-    #   ORACLE_SID
-    # Arguments:
-    #   None
-    #######################################
-    function cleanup() {
-      …
-    }
-    #######################################
-    # Get configuration directory.
-    # Globals:
-    #   SOMEDIR
-    # Arguments:
-    #   None
-    # Outputs:
-    #   Writes location to stdout
-    #######################################
-    function get_dir() {
-      echo "${SOMEDIR}"
-    }
-    #######################################
-    # Delete a file in a sophisticated manner.
-    # Arguments:
-    #   File to delete, a path.
-    # Returns:
-    #   0 if thing was deleted, non-zero on error.
-    #######################################
-    function del_thing() {
-      rm "$1"
-    }
-    ```
+
+Example:
+```
+#######################################
+# Cleanup files from the backup directory.
+# Globals:
+#   BACKUP_DIR
+#   ORACLE_SID
+# Arguments:
+#   None
+#######################################
+function cleanup() {
+  …
+}
+
+#######################################
+# Get configuration directory.
+# Globals:
+#   SOMEDIR
+# Arguments:
+#   None
+# Outputs:
+#   Writes location to stdout
+#######################################
+function get_dir() {
+  echo "${SOMEDIR}"
+}
+
+#######################################
+# Delete a file in a sophisticated manner.
+# Arguments:
+#   File to delete, a path.
+# Returns:
+#   0 if thing was deleted, non-zero on error.
+#######################################
+function del_thing() {
+  rm "$1"
+}
+```
