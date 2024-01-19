@@ -136,3 +136,22 @@ function del_thing() {
   rm "$1"
 }
 ```
+
+3. ### TODO Comments:
+Example:
+```
+# TODO(mrmonkey): Handle the unlikely edge cases (bug ####)
+```
+
+4. ### Pipelines"
+Example:
+```
+# All fits on one line
+command1 | command2
+
+# Long commands
+command1 \
+  | command2 \
+  | command3 \
+  | command4
+```
