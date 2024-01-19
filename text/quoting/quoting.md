@@ -92,11 +92,11 @@ Start each file with a description of its contents.
 ### Function Comments:
 1. Any function that is not both obvious and short must be commented.
 2. All function comments should describe the intended API behaviour using:
-  1. Description of the function.
-  2. Globals: List of global variables used and modified.
-  3. Arguments: Arguments taken.
-  4. Outputs: Output to STDOUT or STDERR.
-  5. Returns: Returned values other than the default exit status of the last command run.
+  - Description of the function.
+  - Globals: List of global variables used and modified.
+  - Arguments: Arguments taken.
+  - Outputs: Output to STDOUT or STDERR.
+  - Returns: Returned values other than the default exit status of the last command run.
 
 Example:
 ```
@@ -137,13 +137,13 @@ function del_thing() {
 }
 ```
 
-3. ### TODO Comments:
+### TODO Comments:
 Example:
 ```
 # TODO(mrmonkey): Handle the unlikely edge cases (bug ####)
 ```
 
-4. ### Pipelines"
+### Pipelines"
 Example:
 ```
 # All fits on one line
